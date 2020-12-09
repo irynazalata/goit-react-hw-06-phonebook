@@ -2,12 +2,13 @@
   "name": "goit-react-hw-06-phonebook",
   "repository": {
     "type": "git",
-    "url": "git+https://irynazalata.github.io/goit-react-hw-06-phonebook.git"
+    "url": "git+https://github.com/irynazalata/goit-react-hw-06-phonebook.git"
   },
   "homepage": "https://irynazalata.github.io/goit-react-hw-06-phonebook/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.5.0",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.1",
     "@testing-library/user-event": "^12.2.2",
