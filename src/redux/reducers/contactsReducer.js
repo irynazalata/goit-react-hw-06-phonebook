@@ -28,19 +28,23 @@ const INITIAL_STATE = JSON.parse(localStorage.getItem('contacts')) || [
 //   }
 // };
 
+const addContact = (state, action) => {
+  const newContacts = [...state, action.payload];
+  localStorage.setItem('contacts', JSON.stringify(newContacts));
+  return newContacts;
+};
+
+const deleteContact = (state, action) => {
+  const renewedContacts = state.filter(
+    contact => contact.id !== action.payload,
+  );
+  localStorage.setItem('contacts', JSON.stringify(renewedContacts));
+  return renewedContacts;
+};
+
 const contactReducer = createReducer(INITIAL_STATE, {
-  [actions.addContact]: (state, action) => {
-    const newContacts = [...state, action.payload];
-    localStorage.setItem('contacts', JSON.stringify(newContacts));
-    return newContacts;
-  },
-  [actions.deleteContact]: (state, action) => {
-    const renewedContacts = state.filter(
-      contact => contact.id !== action.payload,
-    );
-    localStorage.setItem('contacts', JSON.stringify(renewedContacts));
-    return renewedContacts;
-  },
+  [actions.addContact]: addContact,
+  [actions.deleteContact]: deleteContact,
 });
 
 export default contactReducer;

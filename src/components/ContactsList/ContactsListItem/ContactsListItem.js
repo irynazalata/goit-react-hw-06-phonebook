@@ -15,10 +15,12 @@ const ContactsListItem = ({ name, number, deleteContact }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  contacts: state.contacts,
-  filter: state.filter,
-});
+const mapStateToProps = (state, ownProps) => {
+  const item = state.contacts.find(item => item.id === ownProps.id);
+  return {
+    ...item,
+  };
+};
 const mapDispatchToProps = (dispatch, ownProps) => ({
   deleteContact: () => dispatch(contactAction.deleteContact(ownProps.id)),
 });

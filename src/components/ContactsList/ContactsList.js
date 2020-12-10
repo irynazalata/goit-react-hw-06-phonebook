@@ -11,11 +11,7 @@ const ContactsList = ({ searchContact }) => {
       {searchContact.map(({ id, name, number }) => {
         return (
           <CSSTransition key={id} timeout={250} classNames={styles}>
-            <ContactsListItem
-              id={id}
-              name={name}
-              number={number}
-            ></ContactsListItem>
+            <ContactsListItem id={id}></ContactsListItem>
           </CSSTransition>
         );
       })}
